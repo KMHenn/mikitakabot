@@ -4,7 +4,12 @@ from random import randint
 #from boto.s3.connection import S3Connection
 
 client = discord.Client()
-tok = os.environ.get('token', None)
+
+is_prod = os.environ.get('IS_PROD', None)
+tok = ""
+
+if is_prod:
+    tok = os.environ.get('TOKEN')    
 
 def roll(dice):
     numDice = int(dice[0])
