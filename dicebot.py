@@ -18,7 +18,7 @@ def roll(dice):
     return total
 
 def errorHandle():
-    return ""
+    return "Invalid command."
 
 
 @client.event
@@ -46,7 +46,7 @@ async def on_message(message):
                 elif op == '-':
                     math = int(args[3]) * -1
                 else:
-                    errorHandle()
+                    message.channel.send(errorHandle())
                     return
 
             msg = ('{0.author.mention}: ' + str(args[1]) + ' ' + str(args[2]) + ' ' + str(args[3]) + ' = ' + str(diceRoll + math)).format(message)
