@@ -6,10 +6,7 @@ from random import randint
 client = discord.Client()
 
 is_prod = os.environ.get('IS_PROD', None)
-tok = ""
-
-if is_prod:
-    tok = os.environ.get('TOKEN')    
+tok = os.environ.get('TOKEN')    
 
 def roll(dice):
     numDice = int(dice[0])
