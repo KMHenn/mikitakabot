@@ -33,24 +33,29 @@ async def on_message(message):
         return
 
     if message.content.startswith('/'):
-        if message.content.startswith('/r'):
-            args = message.content.split(" ")
-            dice = (args[1]).split("d")
-            diceRoll = roll(dice)
-            math = 0
+        try:
+            if message.content.startswith('/r'):
+                args = message.content.split(" ")
+                dice = (args[1]).split("d")
+                diceRoll = roll(dice)
+                math = 0
 
-            if len(args) > 2:
-                op = args[2]
-                if op == '+':
-                    math = int(args[3])
-                elif op == '-':
-                    math = int(args[3]) * -1
-                else:
-                    message.channel.send(errorHandle())
-                    return
+                if len(args) > 2:
+                    op = args[2]
+                    if op == '+':
+                        math = int(args[3])
+                    elif op == '-':
+                        math = int(args[3]) * -1
+                    else:
+                        error = errorHandle()
+                        message.channel.send(error)
+                        return
 
-            msg = ('{0.author.mention}: ' + str(args[1]) + ' ' + str(args[2]) + ' ' + str(args[3]) + ' = ' + str(diceRoll + math)).format(message)
-            await message.channel.send(msg)
+                msg = ('{0.author.mention}: ' + str(args[1]) + ' ' + str(args[2]) + ' ' + str(args[3]) + ' = ' + str(diceRoll + math)).format(message)
+                await message.channel.send(msg)
+        except:
+            error = errorHandle()
+            message.channel.send(error + " ??") 
 
 
 
