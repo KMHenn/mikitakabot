@@ -1,9 +1,10 @@
 import discord
+import os
 from random import randint
-from boto.s3.connection import S3Connection
+#from boto.s3.connection import S3Connection
 
 client = discord.Client()
-tok = S3Connection(os.environ['token'])
+tok = os.environ.get('token', None)
 
 def roll(dice):
     numDice = int(dice[0])
