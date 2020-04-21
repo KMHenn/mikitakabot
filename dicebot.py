@@ -11,10 +11,12 @@ def roll(dice):
     numDice = int(dice[0])
     numSides = int(dice[1])
     total = 0
+    rollStr = ""
     for x in range (0, numDice):
         r = randint(1, numSides)
+        rollStr = rollStr + "+" + str(r)
         total += r
-    return total
+    return [total, rollStr]
 
 @client.event
 async def on_ready():
@@ -45,9 +47,9 @@ async def on_message(message):
                         error = ("{0.author.mention}" + ERROR).format(message)
                         await message.channel.send(error)
                         return
-                    msg = ('{0.author.mention}: ' + str(args[1]) + ' ' + str(args[2]) + ' ' + str(args[3]) + ' = ' + str(diceRoll + math)).format(message)
+                    msg = ('{0.author.mention}: (' + diceRoll[1] + ') + ' + str(math) + ' = ' + str(diceRoll[0] + math)).format(message)
                 else:
-                    msg = ('{0.author.mention}: ' + str(args[1])  + ' = ' + str(diceRoll)).format(message)
+                    msg = ('{0.author.mention}: (' + diceRoll[1] + ') = ' + str(diceRoll[0])).format(message)
                     await message.channel.send(msg)
         except:
             error = ("{0.author.mention}" + ERROR).format(message)
