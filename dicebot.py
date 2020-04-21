@@ -50,10 +50,10 @@ async def on_message(message):
                         error = ("{0.author.mention}" + ERROR).format(message)
                         await message.channel.send(error)
                         return
-                    msg = ('{0.author.mention}: ' + str(args[1]) + ' = (' + diceRoll[1] + ') + ' + str(math) + ' = ' + str(diceRoll[0] + math)).format(message)
+                    msg = ('{0.author.mention}: ' + str(args[1]) + str(args[2]) + str(args[3]) + ' = (' + diceRoll[1] + ') ' + str(args[2]) + ' ' + str(math) + ' = ' + '**' + str(diceRoll[0] + math) + '**').format(message)
                     await message.channel.send(msg)
                 else:
-                    msg = ('{0.author.mention}: ' + str(args[1]) + ' = (' + diceRoll[1] + ') = ' + str(diceRoll[0])).format(message)
+                    msg = ('{0.author.mention}: ' + str(args[1]) + ' = (' + diceRoll[1] + ') = ' + '**' + str(diceRoll[0]) + '**').format(message)
                     await message.channel.send(msg)
         except:
             error = ("{0.author.mention}" + ERROR).format(message)
@@ -127,15 +127,15 @@ async def on_message(message):
         elif message.content == "!help":
             desc = "Get description of "
             txt = ("{0.author.mention}: " + "\n" + "Command List:" + "\n" 
-            + "/r [#dice]d[#sides] [+ | -] [#]: Roll [#dice] [#sides]-sided die, [+ | -] [#]." + "\n"
-            + "!engage: " + desc + "'Directly Engage a Threat'" + "\n"
-            + "!unleash: " + desc + "'Unleash Your Powers'" + "\n"
-            + "!comfort: " + desc + "'Comfort or Support'" + "\n"
-            + "!pierce: " + desc + "'Pierce the Mask'" + "\n"
-            + "!defend: " + desc + "'Defend'" + "\n"
-            + "!assess: " + desc + "'Assess the Situation'" + "\n"
-            + "!provoke: " + desc + "'Provoke Someone'" + "\n"
-            + "!blow: " + desc + "'Take a Powerful Blow'" + "\n").format(message)
+            + "**/r [#dice]d[#sides] [+ | -] [#]**: Roll [#dice] [#sides]-sided die, [+ | -] [#]." + "\n"
+            + "**!engage**: " + desc + "'Directly Engage a Threat'" + "\n"
+            + "**!unleash**: " + desc + "'Unleash Your Powers'" + "\n"
+            + "**!comfort**: " + desc + "'Comfort or Support'" + "\n"
+            + "**!pierce**: " + desc + "'Pierce the Mask'" + "\n"
+            + "**!defend**: " + desc + "'Defend'" + "\n"
+            + "**!assess**: " + desc + "'Assess the Situation'" + "\n"
+            + "**!provoke**: " + desc + "'Provoke Someone'" + "\n"
+            + "**!blow**: " + desc + "'Take a Powerful Blow'" + "\n").format(message)
             await message.channel.send(txt)
         
         else:
