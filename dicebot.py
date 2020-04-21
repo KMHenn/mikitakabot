@@ -126,8 +126,8 @@ async def on_message(message):
 
         elif message.content == "!help":
             desc = "Get description of "
-            txt = ("{0.author.mention}: " + "\n" + "Command List:" + "\n" 
-            + "**/r [#dice]d[#sides] [+ | -] [#]**: Roll [#dice] [#sides]-sided die, [+ | -] [#]." + "\n"
+            txt = ("{0.author.mention}: " + "\n" + "Command List:" + "\n" + "\n" 
+            + "**/r [#dice]d[#sides] [+ | -] [#]**: Roll [#dice] [#sides]-sided die, [+ | -] [#]." + "\n" + "\n"
             + "**!engage**: " + desc + "'Directly Engage a Threat'" + "\n"
             + "**!unleash**: " + desc + "'Unleash Your Powers'" + "\n"
             + "**!comfort**: " + desc + "'Comfort or Support'" + "\n"
