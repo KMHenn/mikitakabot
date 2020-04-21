@@ -14,7 +14,10 @@ def roll(dice):
     rollStr = ""
     for x in range (0, numDice):
         r = randint(1, numSides)
-        rollStr = rollStr + "+" + str(r)
+        if x == 0:
+            rollStr = str(r)
+        else:
+            rollStr = rollStr + "+" + str(r)
         total += r
     return [total, rollStr]
 
@@ -48,6 +51,7 @@ async def on_message(message):
                         await message.channel.send(error)
                         return
                     msg = ('{0.author.mention}: (' + diceRoll[1] + ') + ' + str(math) + ' = ' + str(diceRoll[0] + math)).format(message)
+                    await message.channel.send(msg)
                 else:
                     msg = ('{0.author.mention}: (' + diceRoll[1] + ') = ' + str(diceRoll[0])).format(message)
                     await message.channel.send(msg)
