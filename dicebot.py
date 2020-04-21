@@ -127,15 +127,15 @@ async def on_message(message):
         elif message.content == "!help":
             desc = "Get description of "
             txt = ("{0.author.mention}: " + "\n" + "Command List:" + "\n" + "\n" 
-            + "**/r [#dice]d[#sides] [+ | -] [#]**: Roll [#dice] [#sides]-sided die, [+ | -] [#]." + "\n" + "\n"
-            + "**!engage**: " + desc + "'Directly Engage a Threat'" + "\n"
-            + "**!unleash**: " + desc + "'Unleash Your Powers'" + "\n"
-            + "**!comfort**: " + desc + "'Comfort or Support'" + "\n"
-            + "**!pierce**: " + desc + "'Pierce the Mask'" + "\n"
-            + "**!defend**: " + desc + "'Defend'" + "\n"
-            + "**!assess**: " + desc + "'Assess the Situation'" + "\n"
-            + "**!provoke**: " + desc + "'Provoke Someone'" + "\n"
-            + "**!blow**: " + desc + "'Take a Powerful Blow'" + "\n").format(message)
+            + "**/r [#dice]d[#sides] [+ | -] [#]**: " + "\t" + "Roll [#dice] [#sides]-sided die, [+ | -] [#]." + "\n" + "\n"
+            + "**!engage**: " + "\t" + desc + "'Directly Engage a Threat'" + "\n"
+            + "**!unleash**: " + "\t" + desc + "'Unleash Your Powers'" + "\n"
+            + "**!comfort**: " + "\t" + desc + "'Comfort or Support'" + "\n"
+            + "**!pierce**: " + "\t" + desc + "'Pierce the Mask'" + "\n"
+            + "**!defend**: " + "\t" + desc + "'Defend'" + "\n"
+            + "**!assess**: " + "\t" + desc + "'Assess the Situation'" + "\n"
+            + "**!provoke**: " + "\t" + desc + "'Provoke Someone'" + "\n"
+            + "**!blow**: " + "\t" + desc + "'Take a Powerful Blow'" + "\n").format(message)
             await message.channel.send(txt)
         
         else:
