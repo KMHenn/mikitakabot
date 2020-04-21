@@ -7,6 +7,11 @@ client = discord.Client()
 is_prod = os.environ.get('IS_PROD', None)
 tok = os.environ.get('TOKEN')    
 
+
+
+######################################
+## Roll specified number of dice
+######################################
 def roll(dice):
     numDice = int(dice[0])
     numSides = int(dice[1])
@@ -21,12 +26,20 @@ def roll(dice):
         total += r
     return [total, rollStr]
 
+
+
+######################################
+## Print on ready to console
+######################################
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    print('Logged in as {0.user}'.format(client))
 
 
 
+######################################
+## Handle messages in server/chat
+######################################
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -39,7 +52,6 @@ async def on_message(message):
                 dice = (args[1]).split("d")
                 diceRoll = roll(dice)
                 math = 0
-                print(len(args))
                 if len(args) > 2:
                     op = args[2]
                     if op == '+':
@@ -142,4 +154,9 @@ async def on_message(message):
             error = ("{0.author.mention}" + ERROR).format(message)
             await message.channel.send(error)
 
+
+
+######################################
+## Connect
+######################################
 client.run(tok)
