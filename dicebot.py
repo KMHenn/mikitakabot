@@ -34,8 +34,8 @@ async def on_message(message):
                 dice = (args[1]).split("d")
                 diceRoll = roll(dice)
                 math = 0
-
-                if len(args) > 3:
+                print(len(args))
+                if len(args) > 2:
                     op = args[2]
                     if op == '+':
                         math = int(args[3])
