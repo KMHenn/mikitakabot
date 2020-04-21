@@ -45,9 +45,10 @@ async def on_message(message):
                         error = ("{0.author.mention}" + ERROR).format(message)
                         await message.channel.send(error)
                         return
-
-                msg = ('{0.author.mention}: ' + str(args[1]) + ' ' + str(args[2]) + ' ' + str(args[3]) + ' = ' + str(diceRoll + math)).format(message)
-                await message.channel.send(msg)
+                    msg = ('{0.author.mention}: ' + str(args[1]) + ' ' + str(args[2]) + ' ' + str(args[3]) + ' = ' + str(diceRoll + math)).format(message)
+                else:
+                    msg = ('{0.author.mention}: ' + str(args[1])  + ' = ' + str(diceRoll)).format(message)
+                    await message.channel.send(msg)
         except:
             error = ("{0.author.mention}" + ERROR).format(message)
             await message.channel.send(error)
