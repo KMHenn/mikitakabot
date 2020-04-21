@@ -1,7 +1,7 @@
 import discord
 import os
 from random import randint
-#from boto.s3.connection import S3Connection
+
 ERROR = " Invalid command (Type !help for list of commands)"
 client = discord.Client()
 is_prod = os.environ.get('IS_PROD', None)
@@ -50,10 +50,10 @@ async def on_message(message):
                         error = ("{0.author.mention}" + ERROR).format(message)
                         await message.channel.send(error)
                         return
-                    msg = ('{0.author.mention}: (' + diceRoll[1] + ') + ' + str(math) + ' = ' + str(diceRoll[0] + math)).format(message)
+                    msg = ('{0.author.mention}: ' + str(args[1]) + ' = (' + diceRoll[1] + ') + ' + str(math) + ' = ' + str(diceRoll[0] + math)).format(message)
                     await message.channel.send(msg)
                 else:
-                    msg = ('{0.author.mention}: (' + diceRoll[1] + ') = ' + str(diceRoll[0])).format(message)
+                    msg = ('{0.author.mention}: ' + str(args[1]) + ' = (' + diceRoll[1] + ') = ' + str(diceRoll[0])).format(message)
                     await message.channel.send(msg)
         except:
             error = ("{0.author.mention}" + ERROR).format(message)
