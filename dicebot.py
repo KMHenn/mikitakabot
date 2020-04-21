@@ -3,8 +3,8 @@ import os
 from random import randint
 #from boto.s3.connection import S3Connection
 
+ERROR = "Invalid command (Type !help for list of commands)"
 client = discord.Client()
-
 is_prod = os.environ.get('IS_PROD', None)
 tok = os.environ.get('TOKEN')    
 
@@ -16,9 +16,6 @@ def roll(dice):
         r = randint(1, numSides)
         total += r
     return total
-
-def errorHandle():
-    return "Invalid command"
 
 
 @client.event
@@ -47,15 +44,13 @@ async def on_message(message):
                     elif op == '-':
                         math = int(args[3]) * -1
                     else:
-                        error = errorHandle()
-                        await message.channel.send(error + ": Dice roll format is [#dice]d[#sides] [+ | -] [#]")
+                        await message.channel.send(ERROR)
                         return
 
                 msg = ('{0.author.mention}: ' + str(args[1]) + ' ' + str(args[2]) + ' ' + str(args[3]) + ' = ' + str(diceRoll + math)).format(message)
                 await message.channel.send(msg)
         except:
-            error = errorHandle()
-            await message.channel.send(error + ": Invalid command")
+            await message.channel.send(ERROR)
 
     elif message.content.startswith('!'):
         if message.content == '!engage':
@@ -83,5 +78,60 @@ async def on_message(message):
             + "- How could I gain influence over you?").format(message)
             await message.channel.send(txt)
 
+        elif message.content == "!defend":
+            txt = ("{0.author.mention}: " + "When you defend someone or something from an immediate threat, roll + Savior. For NPC threats: on a hit, you keep them safe and choose one. On a 7-9, it costs you: expose yourself to danger or escalate the situation." + "\n" 
+            + "- Add a Team to the pool" + "\n"
+            + "- Take influence over someone you protect" + "\n"
+            + "- Clear a condition" + "\n"
+            + "For PC threats: on a hit, give them -2 to their roll. On a 7-9, you expose yourself to cost, retribution, or judgment.").format(message)
+            await message.channel.send(txt)
+
+        elif message.content == "!assess":
+            txt = ("{0.author.mention}: " + "When you assess the situation, roll + Superior. On a 10+, ask two. On a 7-9, ask one. Take +1 while acting on the answers:" + "\n" 
+            + "- What here can I use to _____?" + "\n"
+            + "- What here is the biggest threat?" + "\n"
+            + "- What here is the greatest danger?" + "\n"
+            + "- Who here is most vulnerable to me?" + "\n"
+            + "- How could we best end this quickly?").format(message)
+            await message.channel.send(txt)
+
+        elif message.content == "!provoke":
+            txt = ("{0.author.mention}: " + "When you provoke someone susceptible to your words, say what you’re trying to get them to do and roll + Superior. For NPCs: on a 10+, they rise to the bait and do what you want. On a 7-9, they can instead choose one:" + "\n" 
+            + "- They stumble: You take +1 forward agains them" + "\n"
+            + "- They err: You gain a critical opprotunity" + "\n"
+            + "- They overreact: You gain influence over them" + "\n"
+            + "- Who here is most vulnerable to me?" + "\n"
+            + "For PCs: On a 10+, both. On a 7-9, choose one." + "\n"
+            + "- If they do it, add a Team to the pool" + "\n"
+            + "- If they don't do it, they mark a condition").format(message)
+            await message.channel.send(txt)
+        
+        elif message.content == "!blow":
+            txt = ("{0.author.mention}: " + "When you take a powerful blow, roll + conditions marked. On a 10+, choose one:" + "\n" 
+            + "- You must remove yourself from the situation: Flee, pass out, etc." + "\n"
+            + "- You lose control of yourself or your powers in a terrible way" + "\n"
+            + "- Two options from the 7-9 list" + "\n"
+            + "On a 7-9, choose one:" + "\n"
+            + "- You lash out verbally: Provoke a teammate to foolhardy action or take advantage of your influence to inflict a condition" + "\n"
+            + "- You struggle past the pain: Mark two conditions" + "\n"
+            + "On a miss, you stand strong. Mark potential as normal, and say how you weather the blow").format(message)
+            await message.channel.send(txt)
+
+        elif message.content == "!help":
+            desc = "Get description of "
+            txt = ("{0.author.mention}: " + "\n" + "Command List:" + "\n" 
+            + "/r [#dice]d[#sides] [+ | -] [#]: Roll [#dice] [#sides]-sided die, [+ | -] [#]." + "\n"
+            + "!engage: " + desc + "'Directly Engage a Threat'" + "\n"
+            + "!unleash: " + desc + "'Unleash Your Powers'" + "\n"
+            + "!comfort: " + desc + "'Comfort or Support'" + "\n"
+            + "!pierce: " + desc + "'Pierce the Mask'" + "\n"
+            + "!defend: " + desc + "'Defend'" + "\n"
+            + "!assess: " + desc + "'Assess the Situation'" + "\n"
+            + "!provoke: " + desc + "'Provoke Someone'" + "\n"
+            + "!blow: " + desc + "'Take a Powerful Blow'" + "\n").format(message)
+            await message.channel.send(txt)
+        
+        else:
+            await message.channel.send(ERROR)
 
 client.run(tok)
