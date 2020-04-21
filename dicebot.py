@@ -18,7 +18,7 @@ def roll(dice):
     return total
 
 def errorHandle():
-    return "Invalid command."
+    return "Invalid command"
 
 
 @client.event
@@ -58,7 +58,14 @@ async def on_message(message):
             await message.channel.send(error + ": Invalid command")
 
     elif message.content.startswith('!'):
-        temp = ""
+        if message.content.startswith('!engage'):
+            txt = ("When you directly engage a threat, roll + Danger. On a hit, trade blows. On a 10+, pick two. On a 7-9, pick one: " + "\n" 
+            + "- Resist or avoid their blows" + "\n"
+            + "- Take something from them" + "\n"
+            + "- Create an opprotunity for your allies" + "\n"
+            + "- Impress, surprise, or frighten the opposition").format(message)
+            await message.channel.send(txt)
+
 
 
 
