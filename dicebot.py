@@ -2,7 +2,7 @@ import discord
 import os
 from random import randint
 #from boto.s3.connection import S3Connection
-
+ERROR = " Invalid command (Type !help for list of commands)"
 client = discord.Client()
 is_prod = os.environ.get('IS_PROD', None)
 tok = os.environ.get('TOKEN')    
@@ -15,10 +15,6 @@ def roll(dice):
         r = randint(1, numSides)
         total += r
     return total
-
-def errorHandle(user):
-    return (user + " Invalid command (Type !help for list of commands)").format(message)
-
 
 @client.event
 async def on_ready():
@@ -46,14 +42,14 @@ async def on_message(message):
                     elif op == '-':
                         math = int(args[3]) * -1
                     else:
-                        error = errorHandle("{0.author.mention}")
+                        error = ("{0.author.mention}" + ERROR).format(message)
                         await message.channel.send(error)
                         return
 
                 msg = ('{0.author.mention}: ' + str(args[1]) + ' ' + str(args[2]) + ' ' + str(args[3]) + ' = ' + str(diceRoll + math)).format(message)
                 await message.channel.send(msg)
         except:
-            error = errorHandle("{0.author.mention}")
+            error = ("{0.author.mention}" + ERROR).format(message)
             await message.channel.send(error)
 
     elif message.content.startswith('!'):
@@ -136,7 +132,7 @@ async def on_message(message):
             await message.channel.send(txt)
         
         else:
-            error = errorHandle("{0.author.mention}")
+            error = ("{0.author.mention}" + ERROR).format(message)
             await message.channel.send(error)
 
 client.run(tok)
