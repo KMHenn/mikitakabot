@@ -1,3 +1,4 @@
+import rollparse
 import discord
 import os
 from random import randint
@@ -51,6 +52,8 @@ async def on_message(message):
             if message.content.startswith('/r'):
                 args = message.content.split(" ")
                 dice = (args[1]).split("d")
+                numDice = int(dice[0])
+                parse(message[2:].replace(" ", ""))
                 diceRoll = roll(dice)
                 result = 0
                 if len(args) > 2:
