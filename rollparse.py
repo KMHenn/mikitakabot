@@ -10,12 +10,14 @@ def parse(input):#input, numDice):
     input = (input.content)[2:].replace(" ", "")
     diceSplit = (input).split("d")
     numDice = int(diceSplit[0])
-    print("numDice : " + str(numDice))
+    print("numDice : " + str(numDice) + "\tdiceSplit[1]: " + diceSplit[1])
+
     sideParse = getSides(diceSplit[1])
     print("exited getSides")
     numSides = int(sideParse[0])
     print("numSides : " + str(numSides))
     input = sideParse[1]
+
     totalArr = roll(numDice, numSides)
     total = totalArr[0]
     dispStr = "/r " + str(numDice) + "d" + str(numSides) + " = (" + totalArr[1] + ") " 
