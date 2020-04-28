@@ -52,7 +52,7 @@ def getSides(input):
         intStr =  intStr + input[ind]
         ind = ind + 1
     
-    print("intStr: " + intStr)
+    print("input[ind] = " + input[ind])
     return [int(intStr), input[ind:]]
 
 
