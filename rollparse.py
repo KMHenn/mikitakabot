@@ -54,7 +54,8 @@ def getSides(input):
         print("ind = " + str(ind))
     
     print("ind = " + ind)
-    return [int(intStr), input[ind:]]
+    input = input[ind:]
+    return [int(intStr), input]
 
 
 
