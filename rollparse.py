@@ -7,6 +7,7 @@ OPS = ["+", "-", "*", "/"]
 ##
 ######################################
 def parse(input):#input, numDice):
+    input = (input.content)[2:].replace(" ", "")
     print("In parse")
     print("input:  " + str(input))
     diceSplit = (input).split("d")
