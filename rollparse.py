@@ -43,6 +43,7 @@ def parse(input):#input, numDice):
 ##
 ######################################
 def getSides(input):
+    print("In getSides")
     ind = 0
     intStr = ""
 
@@ -59,6 +60,7 @@ def getSides(input):
 ##
 ######################################
 def math(tot, newVal, op):
+    print("In math")
     result = ""
 
     if op == '+':
@@ -77,6 +79,7 @@ def math(tot, newVal, op):
 ## Roll specified number of dice
 ######################################
 def roll(numDice, numSides):
+    print("In roll")
     total = 0
     rollStr = ""
     for x in range (0, numDice):
