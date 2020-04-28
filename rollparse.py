@@ -12,6 +12,7 @@ def parse(input):#input, numDice):
     numDice = int(diceSplit[0])
     print("numDice : " + str(numDice))
     sideParse = getSides(diceSplit[1])
+    print("exited getSides")
     numSides = sideParse[0]
     print("numSides : " + str(numSides))
     input = sideParse[1]
