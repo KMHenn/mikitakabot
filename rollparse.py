@@ -51,6 +51,7 @@ def getSides(input):
         print("\t while loop: input[ind] = " + input[ind])
         intStr =  intStr + input[ind]
         ind = ind + 1
+        print("ind = " + ind)
     
     print("ind = " + ind)
     return [int(intStr), input[ind:]]
