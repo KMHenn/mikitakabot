@@ -8,12 +8,12 @@ OPS = ["+", "-", "*", "/"]
 ######################################
 def parse(input):#input, numDice):
     input = (input.content)[2:].replace(" ", "")
-    print("In parse")
-    print("input:  " + str(input))
     diceSplit = (input).split("d")
     numDice = int(diceSplit[0])
+    print("numDice : " + str(numDice))
     sideParse = getSides(diceSplit[1])
     numSides = sideParse[0]
+    print("numSides : " + str(numSides))
     input = sideParse[1]
     totalArr = roll(numDice, numSides)
     total = totalArr[0]
