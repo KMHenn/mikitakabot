@@ -9,7 +9,7 @@ OPS = ["+", "-", "*", "/"]
 def parse(input):#input, numDice):
     input = input[2:].replace(" ", "")
     print("In parse")
-    print("input:  " + input)
+    print("input:  " + str(input))
     diceSplit = (input).split("d")
     numDice = int(diceSplit[0])
     sideParse = getSides(diceSplit[1])
@@ -33,7 +33,7 @@ def parse(input):#input, numDice):
             curNum = curNum + input[i]
     
     total = math(total, int(curNum), curOp)
-    dispStr = dispStr + " " + curOp + " " + curNum + " = " + "**" + total + "**"
+    dispStr = dispStr + " " + curOp + " " + curNum + " = " + "**" + str(total) + "**"
     return dispStr
             
 
