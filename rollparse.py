@@ -7,37 +7,42 @@ OPS = ["+", "-", "*", "/"]
 ##
 ######################################
 def parse(input):#input, numDice):
-    input = (input.content)[2:].replace(" ", "")
-    diceSplit = (input).split("d")
-    numDice = int(diceSplit[0])
-    print("numDice : " + str(numDice) + "\tdiceSplit[1]: " + diceSplit[1])
+    try:
+        input = (input.content)[2:].replace(" ", "")
+        diceSplit = (input).split("d")
+        numDice = int(diceSplit[0])
+        print("numDice : " + str(numDice) + "\tdiceSplit[1]: " + diceSplit[1])
 
-    sideParse = getSides(diceSplit[1])
-    print("exited getSides")
-    numSides = sideParse[0]
-    print("numSides : " + str(numSides))
-    input = input[sideParse[1]:]
+        sideParse = getSides(diceSplit[1])
+        print("exited getSides")
+        numSides = sideParse[0]
+        print("numSides : " + str(numSides))
+        input = input[sideParse[1]:]
 
-    totalArr = roll(numDice, numSides)
-    total = totalArr[0]
-    dispStr = "/r " + str(numDice) + "d" + str(numSides) + " = (" + totalArr[1] + ") " 
-    curNum = ""
-    curOp = ""
+        totalArr = roll(numDice, numSides)
+        total = totalArr[0]
+        dispStr = "/r " + str(numDice) + "d" + str(numSides) + " = (" + totalArr[1] + ") " 
+        curNum = ""
+        curOp = ""
 
-    for i in range(0, len(input)):
-        if input[i] in OPS:
-            curOp = input[i]
-            if i != 0:
-                total = math(total, int(curNum), curOp)
-                dispStr = dispStr + " " + curOp + " " + curNum
-                curNum = ""
+        for i in range(0, len(input)):
+            if input[i] in OPS:
                 curOp = input[i]
-        else:
-            curNum = curNum + input[i]
-    
-    total = math(total, int(curNum), curOp)
-    dispStr = dispStr + " " + curOp + " " + curNum + " = " + "**" + str(total) + "**"
-    return dispStr
+                if i != 0:
+                    total = math(total, int(curNum), curOp)
+                    dispStr = dispStr + " " + curOp + " " + curNum
+                    curNum = ""
+                    curOp = input[i]
+            else:
+                curNum = curNum + input[i]
+        
+        total = math(total, int(curNum), curOp)
+        dispStr = dispStr + " " + curOp + " " + curNum + " = " + "**" + str(total) + "**"
+        return dispStr
+    except Exception as e:
+        print(e)
+        return
+
             
 
 
