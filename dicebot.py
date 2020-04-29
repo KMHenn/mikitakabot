@@ -48,35 +48,8 @@ async def on_message(message):
 
     if message.content.startswith('/'):
         try:
-            # Dice roll command
             if message.content.startswith('/r'):
-                #args = message.content.split(" ")
-                #dice = (args[1]).split("d")
-                #numDice = int(dice[0])
-                #resStr = parse(message[2:].replace(" ", ""))
                 resStr = parse((message.content)[2:].replace(" ", ""))
-                # diceRoll = roll(dice)
-                # result = 0
-                # if len(args) > 2:
-                #     op = args[2]
-                #     if op == '+':
-                #         result = diceRoll[0] + int(args[3])
-                #     elif op == '-':
-                #         result = diceRoll[0] - int(args[3])
-                #     elif op == '*':
-                #         result = diceRoll[0] * int(args[3])
-                #     elif op == '/':
-                #         result = diceRoll[0] / int(args[3])
-                #     else:
-                #         error = ("{0.author.mention}" + ERROR).format(message)
-                #         await message.channel.send(error)
-                #         return
-                #     msg = ('{0.author.mention}: ' + str(args[1]) + str(args[2]) + str(args[3]) + ' = (' + diceRoll[1] + ') ' + str(args[2]) + ' ' + str(args[3]) + ' = ' + '**' + str(result) + '**').format(message)
-                #     await message.channel.send(msg)
-                # else:
-                #     msg = ('{0.author.mention}: ' + str(args[1]) + ' = (' + diceRoll[1] + ') = ' + '**' + str(diceRoll[0]) + '**').format(message)
-                #     await message.channel.send(msg)
-
                 msg = ('{0.author.mention}: ' + resStr).format(message)
                 await message.channel.send(msg)
         except:

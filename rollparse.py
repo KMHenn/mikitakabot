@@ -4,11 +4,11 @@ OPS = ["+", "-", "*", "/"]
 
 
 ######################################
-##
+## Parse the input string
 ######################################
 def parse(input):
     try:
-        print("\n\n")
+        # Find number of dice, number of sides on dice
         diceSplit = (input).split("d")
         numDice = int(diceSplit[0])
         workStr = diceSplit[1]
@@ -16,11 +16,13 @@ def parse(input):
         numSides = sideParse[0]
         strInd = int(sideParse[1])
 
+        # Roll the dice
         totalArr = roll(numDice, numSides)
         total = totalArr[0]
         dispStr = "/r " + str(numDice) + "d" + str(numSides) + " = (" + totalArr[1] + ")"
 
         if strInd != len(workStr):
+            # Parse arithmetic 
             curNum = ""
             curOp = workStr[strInd]
 
@@ -36,7 +38,9 @@ def parse(input):
             
             total = math(total, int(curNum), curOp)
             dispStr = dispStr + " " + curOp + " " + curNum + " = " + "**" + str(total) + "**"
+
         else:
+            # Format return string
             dispStr = dispStr + " = **" + str(total) + "**"
 
         return dispStr
@@ -49,9 +53,9 @@ def parse(input):
 
 
 
-######################################
-##
-######################################
+############################################
+## Parse the number of sides on the dice 
+############################################
 def getSides(input):
     ind = 0
     intStr = ""
@@ -71,7 +75,7 @@ def getSides(input):
 
 
 ######################################
-##
+## Do requested math
 ######################################
 def math(tot, newVal, op):
     result = ""
