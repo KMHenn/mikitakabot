@@ -29,7 +29,7 @@ def parse(input):#input, numDice):
         curOp = ""
 
         for i in range(int(strInd), len(input)):
-            print("in for loop: input[" + i + "] = " + input[i])
+            print("in for loop: input[" + str(i) + "] = " + input[i])
             if input[i] in OPS:
                 curOp = input[i]
                 if i != strInd:
