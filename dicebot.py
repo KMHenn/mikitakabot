@@ -213,7 +213,7 @@ async def on_message(message):
             + "**!provoke**: " + "\t" + desc + "'Provoke Someone'" + "\n"
             + "**!blow**: " + "\t" + desc + "'Take a Powerful Blow'" + "\n" + "\n"
             + " PERIPHERAL MOVES " + "\n"
-            + "**!start**: " + "\t" + desc + "'Start of Session"
+            + "**!start**: " + "\t" + desc + "'Start of Session" + "\n"
             + "**!end**: " + "\t" + desc + "'End of Session'" + "\n"
             + "**!team**: " + "\t" + desc + "'Team Mechanics'" + "\n"
             + "**!conditions**: " + "\t" + "'Conditions'" + "\n"
