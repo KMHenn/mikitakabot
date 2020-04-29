@@ -8,7 +8,7 @@ OPS = ["+", "-", "*", "/"]
 ######################################
 def parse(input):#input, numDice):
     try:
-        input = (input.content)[2:].replace(" ", "")
+        #input = (input.content)[2:].replace(" ", "")
         diceSplit = (input).split("d")
         numDice = int(diceSplit[0])
         print("numDice : " + str(numDice) + "\tdiceSplit[1]: " + diceSplit[1])
@@ -17,7 +17,7 @@ def parse(input):#input, numDice):
         print("exited getSides")
         numSides = sideParse[0]
         print("numSides : " + str(numSides))
-        input = input[sideParse[1]:]
+        strInd = sideParse[1]
 
         totalArr = roll(numDice, numSides)
         total = totalArr[0]
@@ -25,10 +25,10 @@ def parse(input):#input, numDice):
         curNum = ""
         curOp = ""
 
-        for i in range(0, len(input)):
+        for i in range(strInd, len(input)):
             if input[i] in OPS:
                 curOp = input[i]
-                if i != 0:
+                if i != strInd:
                     total = math(total, int(curNum), curOp)
                     dispStr = dispStr + " " + curOp + " " + curNum
                     curNum = ""

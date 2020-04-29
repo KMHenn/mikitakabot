@@ -54,7 +54,7 @@ async def on_message(message):
                 #dice = (args[1]).split("d")
                 #numDice = int(dice[0])
                 #resStr = parse(message[2:].replace(" ", ""))
-                resStr = parse(message)
+                resStr = parse((message.content)[2:].replace(" ", ""))
                 # diceRoll = roll(dice)
                 # result = 0
                 # if len(args) > 2:
