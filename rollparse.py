@@ -19,7 +19,8 @@ def parse(input):
         # Roll the dice
         totalArr = roll(numDice, numSides)
         total = totalArr[0]
-        dispStr = "/r " + str(numDice) + "d" + str(numSides) + " = (" + totalArr[1] + ")"
+        # dispStr = "/r " + str(numDice) + "d" + str(numSides) + " = (" + totalArr[1] + ")"
+        dispStr = "/r " + input + " = (" + totalArr[1] + ")"
 
         if strInd != len(workStr):
             # Parse arithmetic 
