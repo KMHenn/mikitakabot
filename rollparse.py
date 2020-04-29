@@ -17,7 +17,7 @@ def parse(input):#input, numDice):
         print("exited getSides")
         numSides = sideParse[0]
         strInd = sideParse[1]
-        print("numSides: " + numSides + "\tstrInd: " + str(strInd))
+        print("numSides: " + str(numSides) + "\tstrInd: " + str(strInd))
 
         totalArr = roll(numDice, numSides)
         print("exited roll")
