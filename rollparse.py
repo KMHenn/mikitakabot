@@ -8,6 +8,7 @@ OPS = ["+", "-", "*", "/"]
 ######################################
 def parse(input):
     try:
+        print("\n\n")
         diceSplit = (input).split("d")
         numDice = int(diceSplit[0])
         workStr = diceSplit[1]
@@ -18,18 +19,18 @@ def parse(input):
         totalArr = roll(numDice, numSides)
         total = totalArr[0]
         dispStr = "/r " + str(numDice) + "d" + str(numSides) + " = (" + totalArr[1] + ")"
-        curNum = ""
-        curOp = ""
 
         if strInd != len(workStr):
-            for i in range(strInd, len(workStr)):
+            curNum = ""
+            curOp = workStr[strInd]
+
+            for i in range((strInd + 1), len(workStr)):
                 print("in for loop: workStr[" + str(i) + "] = " + workStr[i])
                 if workStr[i] in OPS:
-                    if i != strInd:
-                        total = math(total, int(curNum), curOp)
-                        dispStr = dispStr + " " + curOp + " " + curNum
-                        curNum = ""
-                        curOp = workStr[i]
+                    total = math(total, int(curNum), curOp)
+                    dispStr = dispStr + " " + curOp + " " + curNum
+                    curNum = ""
+                    curOp = workStr[i]
                 else:
                     curNum = curNum + workStr[i]
             
