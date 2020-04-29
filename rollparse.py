@@ -12,8 +12,8 @@ def parse(input):#input, numDice):
         diceSplit = (input).split("d")
         numDice = int(diceSplit[0])
         print("\n\nnumDice : " + str(numDice) + "\tdiceSplit[1]: " + diceSplit[1])
-
-        sideParse = getSides(diceSplit[1])
+        workStr = diceSplit[1]
+        sideParse = getSides(workStr)
         print("exited getSides")
         numSides = sideParse[0]
         strInd = int(sideParse[1])
@@ -28,17 +28,17 @@ def parse(input):#input, numDice):
         curNum = ""
         curOp = ""
 
-        for i in range(strInd, len(diceSplit[1])):
-            print("in for loop: input[" + str(i) + "] = " + input[i])
-            if input[i] in OPS:
-                curOp = input[i]
+        for i in range(strInd, len(workStr)):
+            print("in for loop: workStr[" + str(i) + "] = " + workStr[i])
+            if workStr[i] in OPS:
+                curOp = workStr[i]
                 if i != strInd:
                     total = math(total, int(curNum), curOp)
                     dispStr = dispStr + " " + curOp + " " + curNum
                     curNum = ""
-                    curOp = input[i]
+                    curOp = workStr[i]
             else:
-                curNum = curNum + input[i]
+                curNum = curNum + workStr[i]
         
         total = math(total, int(curNum), curOp)
         dispStr = dispStr + " " + curOp + " " + curNum + " = " + "**" + str(total) + "**"
