@@ -58,8 +58,9 @@ def getSides(input):
     while input[ind] not in OPS:
         print("\t while loop: input[ind] = " + input[ind])
         intStr =  intStr + input[ind]
+        print("\t intStr = " + intStr)
         ind = ind + 1
-        print("ind = " + str(ind))
+        print("\t ind = " + str(ind))
     
     print("ind = " + ind + "\tintStr = " + intStr)
     result = [int(intStr), ind]
