@@ -68,6 +68,7 @@ def getSides(input):
         else:
             break
 
+    ind = ind + 1
     print("ind = " + str(ind) + "\tintStr = " + intStr)
     result = [int(intStr), ind]
     return result
