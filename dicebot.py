@@ -170,7 +170,7 @@ async def on_message(message):
             await message.channel.send(txt)
 
         elif message.content == "!influence":
-            txt = "{0.author.mention}: " + "When someone has Inﬂuence over you, it means you care about what they do, say, or think. At any time you can give Inﬂuence to any character who doesn’t have Inﬂuence over you. All adults have Inﬂuence over you when first introduced" + "\n" + "\n"
+            txt = ("{0.author.mention}: " + "When someone has Inﬂuence over you, it means you care about what they do, say, or think. At any time you can give Inﬂuence to any character who doesn’t have Inﬂuence over you. All adults have Inﬂuence over you when first introduced" + "\n" + "\n"
             + "When you have Inﬂuence over someone, take +1 to all moves targeting them, including rejecting their Inﬂuence" + "\n" + "\n"
             + "When you take advantage of your Inﬂuence over someone, surrender the Inﬂuence you hold over them to choose one:" + "\n"
             + "- Give them -2 on a move they just made (after the roll)" + "\n"
