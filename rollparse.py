@@ -11,7 +11,7 @@ def parse(input):#input, numDice):
         #input = (input.content)[2:].replace(" ", "")
         diceSplit = (input).split("d")
         numDice = int(diceSplit[0])
-        print("numDice : " + str(numDice) + "\tdiceSplit[1]: " + diceSplit[1])
+        print("\n\nnumDice : " + str(numDice) + "\tdiceSplit[1]: " + diceSplit[1])
 
         sideParse = getSides(diceSplit[1])
         print("exited getSides")
@@ -22,7 +22,9 @@ def parse(input):#input, numDice):
         totalArr = roll(numDice, numSides)
         print("exited roll")
         total = totalArr[0]
+        print("total: " + str(total))
         dispStr = "/r " + str(numDice) + "d" + str(numSides) + " = (" + totalArr[1] + ") " 
+        print("dispStr: " + dispStr)
         curNum = ""
         curOp = ""
 
