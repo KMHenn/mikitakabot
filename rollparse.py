@@ -23,7 +23,7 @@ def parse(input):#input, numDice):
         print("exited roll")
         total = totalArr[0]
         print("total: " + str(total))
-        dispStr = "/r " + str(numDice) + "d" + str(numSides) + " = (" + totalArr[1] + ") " 
+        dispStr = "/r " + str(numDice) + "d" + str(numSides) + " = (" + totalArr[1] + ")" 
         print("dispStr: " + dispStr)
         curNum = ""
         curOp = ""
@@ -47,7 +47,7 @@ def parse(input):#input, numDice):
             dispStr = dispStr + " = **" + str(total) + "**"
 
         return dispStr
-        
+
     except Exception as e:
         print(e)
         return
