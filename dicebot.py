@@ -170,7 +170,7 @@ async def on_message(message):
             await message.channel.send(txt)
 
         elif message.content == "!influence":
-            txt = (("{0.author.mention}: " + "When someone has Inﬂuence over you, it means you care about what they do, say, or think. At any time you can give Inﬂuence to any character who doesn’t have Inﬂuence over you. All adults have Inﬂuence over you when first introduced" + "\n" + "\n"
+            txt = "{0.author.mention}: " + "When someone has Inﬂuence over you, it means you care about what they do, say, or think. At any time you can give Inﬂuence to any character who doesn’t have Inﬂuence over you. All adults have Inﬂuence over you when first introduced" + "\n" + "\n"
             + "When you have Inﬂuence over someone, take +1 to all moves targeting them, including rejecting their Inﬂuence" + "\n" + "\n"
             + "When you take advantage of your Inﬂuence over someone, surrender the Inﬂuence you hold over them to choose one:" + "\n"
             + "- Give them -2 on a move they just made (after the roll)" + "\n"
@@ -181,10 +181,10 @@ async def on_message(message):
             + "On a 10+, choose two. On a 7-9. choose one:" + "\n"
             + "- Clear a condition or mark potential by immediately acting to prove them wrong" + "\n"
             + "- Shift one Label up and one Label down, your choice" + "\n" 
-            + "- Cancel their Inﬂuence and take +1 forward against them" + "\n" + 
+            + "- Cancel their Inﬂuence and take +1 forward against them" + "\n"
             + "On a miss, their words hit you hard. Mark a condition, and the GM will adjust your Labels" + "\n" + "\n"
             + "If you have Inﬂuence over a teammate and you would gain Inﬂuence over them again, immediately shift one of their Labels up and one of their Labels down, your choice" + "\n" + "\n"
-            + "If you have Inﬂuence over an NPC and you would gain Inﬂuence over them again, take +1 forward against them")).format(message)
+            + "If you have Inﬂuence over an NPC and you would gain Inﬂuence over them again, take +1 forward against them").format(message)
             await message.channel.send(txt)
 
         elif message.content == "!moment":
