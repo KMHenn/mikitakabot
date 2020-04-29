@@ -216,7 +216,7 @@ async def on_message(message):
             + "**!start**: " + "\t" + desc + "'Start of Session" + "\n"
             + "**!end**: " + "\t" + desc + "'End of Session'" + "\n"
             + "**!team**: " + "\t" + desc + "'Team Mechanics'" + "\n"
-            + "**!conditions**: " + "\t" + "'Conditions'" + "\n"
+            + "**!conditions**: " + "\t" + desc + "'Conditions'" + "\n"
             + "**!clear**: " + "\t" + desc + "'Clearing Conditions'" + "\n"
             + "**!shift**: " + "\t" + desc + "'Shifting Labels'" + "\n"
             + "**!influence**: " + "\t" + desc + "'Influence'" + "\n"
