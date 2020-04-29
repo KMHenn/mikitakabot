@@ -28,7 +28,7 @@ def parse(input):#input, numDice):
         curNum = ""
         curOp = ""
 
-        for i in range(int(strInd), len(input)):
+        for i in range(int(strInd), len(diceSplit[1])):
             print("in for loop: input[" + str(i) + "] = " + input[i])
             if input[i] in OPS:
                 curOp = input[i]
