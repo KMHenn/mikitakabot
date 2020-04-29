@@ -20,6 +20,7 @@ def parse(input):#input, numDice):
         strInd = sideParse[1]
 
         totalArr = roll(numDice, numSides)
+        print("exited roll")
         total = totalArr[0]
         dispStr = "/r " + str(numDice) + "d" + str(numSides) + " = (" + totalArr[1] + ") " 
         curNum = ""
@@ -55,13 +56,6 @@ def getSides(input):
     ind = 0
     intStr = ""
 
-    # while (input[ind] not in OPS) and (ind < len(input)):
-    #     print("\t while loop: input[ind] = " + input[ind])
-    #     intStr =  intStr + input[ind]
-    #     print("\t intStr = " + intStr)
-    #     ind = ind + 1
-    #     print("\t ind = " + str(ind))
-    
     for x in range(0, len(input)):
         if (input[x] not in OPS):
             print("\t while loop: input[x] = " + input[x])
@@ -105,6 +99,7 @@ def roll(numDice, numSides):
     print("In roll")
     total = 0
     rollStr = ""
+
     for x in range (0, numDice):
         r = randint(1, numSides)
         if x == 0:
