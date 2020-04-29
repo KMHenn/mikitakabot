@@ -28,21 +28,26 @@ def parse(input):#input, numDice):
         curNum = ""
         curOp = ""
 
-        for i in range(strInd, len(workStr)):
-            print("in for loop: workStr[" + str(i) + "] = " + workStr[i])
-            if workStr[i] in OPS:
-                curOp = workStr[i]
-                if i != strInd:
-                    total = math(total, int(curNum), curOp)
-                    dispStr = dispStr + " " + curOp + " " + curNum
-                    curNum = ""
+        if strInd != len(workStr):
+            for i in range(strInd, len(workStr)):
+                print("in for loop: workStr[" + str(i) + "] = " + workStr[i])
+                if workStr[i] in OPS:
                     curOp = workStr[i]
-            else:
-                curNum = curNum + workStr[i]
-        
-        total = math(total, int(curNum), curOp)
-        dispStr = dispStr + " " + curOp + " " + curNum + " = " + "**" + str(total) + "**"
+                    if i != strInd:
+                        total = math(total, int(curNum), curOp)
+                        dispStr = dispStr + " " + curOp + " " + curNum
+                        curNum = ""
+                        curOp = workStr[i]
+                else:
+                    curNum = curNum + workStr[i]
+            
+            total = math(total, int(curNum), curOp)
+            dispStr = dispStr + " " + curOp + " " + curNum + " = " + "**" + str(total) + "**"
+        else:
+            dispStr = dispStr + " = **" + str(total) + "**"
+
         return dispStr
+        
     except Exception as e:
         print(e)
         return
