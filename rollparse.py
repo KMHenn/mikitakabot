@@ -16,7 +16,7 @@ def parse(input):#input, numDice):
         sideParse = getSides(diceSplit[1])
         print("exited getSides")
         numSides = sideParse[0]
-        strInd = sideParse[1]
+        strInd = int(sideParse[1])
         print("numSides: " + str(numSides) + "\tstrInd: " + str(strInd))
 
         totalArr = roll(numDice, numSides)
@@ -28,7 +28,7 @@ def parse(input):#input, numDice):
         curNum = ""
         curOp = ""
 
-        for i in range(int(strInd), len(diceSplit[1])):
+        for i in range(strInd, len(diceSplit[1])):
             print("in for loop: input[" + str(i) + "] = " + input[i])
             if input[i] in OPS:
                 curOp = input[i]
