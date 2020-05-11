@@ -94,7 +94,7 @@ async def on_message(message):
             txt = ("{0.author.mention}: " + "When you assess the situation, roll + Superior. On a 10+, ask two. On a 7-9, ask one. Take +1 while acting on the answers:" + "\n" 
             + "- What here can I use to _____?" + "\n"
             + "- What here is the biggest threat?" + "\n"
-            + "- What here is the greatest danger?" + "\n"
+            + "- What here is in the greatest danger?" + "\n"
             + "- Who here is most vulnerable to me?" + "\n"
             + "- How could we best end this quickly?").format(message)
             await message.channel.send(txt)
