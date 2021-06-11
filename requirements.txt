@@ -22,5 +22,5 @@ virtualenv==20.0.10
 virtualenv-clone==0.5.3
 virtualenvwrapper==4.8.4
 virtualenvwrapper-win==1.2.6
-websockets==8.1
+websockets==9.1
 yarl==1.4.2
