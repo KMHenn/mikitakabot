@@ -9,7 +9,7 @@ distlib==0.3.0
 Django==3.0.4
 filelock==3.0.12
 idna==2.9
-Jinja2==2.11.1
+Jinja2==2.11.3
 lazy-object-proxy==1.4.3
 MarkupSafe==1.1.1
 multidict==4.7.5
