@@ -28,7 +28,7 @@ def parse(input):
             curOp = workStr[strInd]
 
             for i in range((strInd + 1), len(workStr)):
-                print("in for loop: workStr[" + str(i) + "] = " + workStr[i])
+                # print("in for loop: workStr[" + str(i) + "] = " + workStr[i])
                 if workStr[i] in OPS:
                     total = math(total, int(curNum), curOp)
                     dispStr = dispStr + " " + curOp + " " + curNum
